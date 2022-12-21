@@ -19,7 +19,7 @@ void application()
 
     printf("1-gestion des produit \n%n");
     printf("2-affichage du stock \n");
-    printf("3-l'historique des entr�es et des sorties\n");
+    printf("3-l'historique des entrees et des sorties\n");
     printf("4-quitter\n ");
     printf("merci du choisir la commande \n");
     scanf("%d", &c);
@@ -48,10 +48,10 @@ void commande(int x)
 void g_produit()
 {
     printf("1/Ajouter un produit\n");
-    printf("2/Afficher la description d�un produit\n");
+    printf("2/Afficher la description d\'un produit\n");
     printf("3/Modifier un produit\n");
     printf("4/Supprimer un produit\n");
-    printf("5/Recherche d�un produit dans le stock\n");
+    printf("5/Recherche d\'un produit dans le stock\n");
     printf("6/retour\n");
     printf("merci du choisir la commande \n");
     scanf("%d", &c);
@@ -71,12 +71,12 @@ void pro(int x)
 
         do
         {
-            printf("date d entree j/m/a\n");
+            printf("date d\'entree j/m/a\n");
             scanf("%d%d%d", &prd.de.j, &prd.de.m, &prd.de.a);
         } while (((prd.de.j > 31) && (0 > prd.de.j)) || ((prd.de.m > 13) && (prd.de.m < 0)) || (prd.de.a < 1999));
         do
         {
-            printf("date d sortie j/m/a\n");
+            printf("date de sortie j/m/a\n");
             scanf("%d%d%d", &prd.ds.j, &prd.ds.m, &prd.ds.a);
         } while (((prd.ds.j < 31) && (0 > prd.ds.j)) || ((prd.ds.m > 13) && (prd.ds.m < 0)) || (prd.ds.a < 1999));
         fflush(stdin);
@@ -140,12 +140,12 @@ void Modifier()
 
     do
     {
-        printf("date d entree j/m/a\n");
+        printf("date d\'entree j/m/a\n");
         scanf("%d%d%d", &prd1.de.j, &prd1.de.m, &prd1.de.a);
     } while (((prd1.de.j > 31) && (0 > prd1.de.j)) || ((prd1.de.m > 13) && (prd1.de.m < 0)) || (prd1.de.a < 1999));
     do
     {
-        printf("date d sortie j/m/a\n");
+        printf("date de sortie j/m/a\n");
         scanf("%d%d%d", &prd1.ds.j, &prd1.ds.m, &prd1.ds.a);
     } while (((prd1.ds.j < 31) && (0 > prd1.ds.j)) || ((prd1.ds.m > 13) && (prd1.ds.m < 0)) || (prd1.ds.a < 1999));
     fflush(stdin);
@@ -193,8 +193,8 @@ void Recherche(int x)
             printf("le nom de produit est ");
             puts(p[i].nom);
             printf("le prix est %d\n", p[i].prix);
-            printf("date d entree %d/%d/%d\n", p[i].de.j, p[i].de.m, p[i].de.a);
-            printf("date d sortie %d/%d/%d\n", p[i].ds.j, p[i].ds.m, p[i].ds.a);
+            printf("date d\'entree %d/%d/%d\n", p[i].de.j, p[i].de.m, p[i].de.a);
+            printf("date de sortie %d/%d/%d\n", p[i].ds.j, p[i].ds.m, p[i].ds.a);
             printf("description est ");
             puts(p[i].desc);
         }
@@ -249,8 +249,8 @@ void stock()
         printf("le nom de produit est ");
         puts(p[i].nom);
         printf(" prix est %d\n", p[i].prix);
-        printf(" date d entree %d/%d/%d\n", p[i].de.j, p[i].de.m, p[i].de.a);
-        printf(" date d sortie %d/%d/%d\n", p[i].ds.j, p[i].ds.m, p[i].ds.a);
+        printf(" date d\'entree %d/%d/%d\n", p[i].de.j, p[i].de.m, p[i].de.a);
+        printf(" date de sortie %d/%d/%d\n", p[i].ds.j, p[i].ds.m, p[i].ds.a);
         printf(" description est ");
         puts(p[i].desc);
     }
@@ -274,7 +274,7 @@ void hestorique()
     {
         if (p[i].de.j == jour)
         {
-            printf("c'est l'entree du produit \n%s", p[i].nom);
+            printf("c'est l\'entree du produit \n%s", p[i].nom);
         }
         else if (p[i].ds.j == jour)
             printf("cest la sortie du produit\n %s", p[i].nom);
@@ -286,7 +286,7 @@ void hestorique()
     {
         if (p[i].de.j == jour)
         {
-            printf("c'est l'entree du produit%s\n", p[i].nom);
+            printf("c'est l\'entree du produit%s\n", p[i].nom);
         }
         else if (p[i].ds.j == jour)
             printf("cest la sortie du produit %s\n", p[i].nom);
