@@ -62,36 +62,7 @@ void pro(int x)
 {
     if (x == 1)
     {
-        produit prd;
-        FILE *file;
-        printf("code du produit\n");
-        scanf("%d", &prd.code);
-        printf("prix de produit\n");
-        scanf("%d", &prd.prix);
-
-        do
-        {
-            printf("date d\'entree j/m/a\n");
-            scanf("%d%d%d", &prd.de.j, &prd.de.m, &prd.de.a);
-        } while (((prd.de.j > 31) && (0 > prd.de.j)) || ((prd.de.m > 13) && (prd.de.m < 0)) || (prd.de.a < 1999));
-        do
-        {
-            printf("date de sortie j/m/a\n");
-            scanf("%d%d%d", &prd.ds.j, &prd.ds.m, &prd.ds.a);
-        } while (((prd.ds.j < 31) && (0 > prd.ds.j)) || ((prd.ds.m > 13) && (prd.ds.m < 0)) || (prd.ds.a < 1999));
-        fflush(stdin);
-        printf("nom du produit\n");
-        fgets(prd.nom, 20, stdin);
-        printf("description du produit\n");
-        fgets(prd.desc, 50, stdin);
-        file = fopen("produit.txt", "a");
-        fwrite(&prd, sizeof(struct produit), 1, file);
-
-        if (fwrite != 0)
-            printf("produit ajoute avec succee");
-        else
-            printf("erreur");
-        fclose(file);
+        ajouter() ;
     }
     else if (x == 2)
     {
@@ -127,6 +98,51 @@ void pro(int x)
     {
         application();
     }
+}
+void ajouter()
+{
+        produit prd;
+        produit prd0 ;
+        FILE *file;
+        FILE *fl;
+        printf("code du produit\n");
+        scanf("%d", &prd.code);
+        fl=fopen("produit.txt","r");
+        int found =0 ;
+        while (fread(&prd0, sizeof(struct produit), 1, fl)){
+            if(prd0.code==prd.code)
+                found=1 ;
+        }
+         if  (found == 1){
+            printf("ce code est deja utiliser  \n");
+            ajouter() ;
+            }
+        printf("prix de produit\n");
+        scanf("%d", &prd.prix);
+
+        do
+        {
+            printf("date d\'entree j/m/a\n");
+            scanf("%d%d%d", &prd.de.j, &prd.de.m, &prd.de.a);
+        } while (((prd.de.j > 31) && (0 > prd.de.j)) || ((prd.de.m > 13) && (prd.de.m < 0)) || (prd.de.a < 1999));
+        do
+        {
+            printf("date de sortie j/m/a\n");
+            scanf("%d%d%d", &prd.ds.j, &prd.ds.m, &prd.ds.a);
+        } while (((prd.ds.j < 31) && (0 > prd.ds.j)) || ((prd.ds.m > 13) && (prd.ds.m < 0)) || (prd.ds.a < 1999));
+        fflush(stdin);
+        printf("nom du produit\n");
+        fgets(prd.nom, 20, stdin);
+        printf("description du produit\n");
+        fgets(prd.desc, 50, stdin);
+        file = fopen("produit.txt", "a");
+        fwrite(&prd, sizeof(struct produit), 1, file);
+
+        if (fwrite != 0)
+            printf("produit ajoute avec succee");
+        else
+            printf("erreur");
+        fclose(file);
 }
 void Modifier()
 {
