@@ -115,7 +115,7 @@ void ajouter()
         }
          if  (found == 1){
             printf("ce code est deja utiliser  \n");
-            ajouter() ;
+            return 0 ;
             }
         printf("prix de produit\n");
         scanf("%d", &prd.prix);
